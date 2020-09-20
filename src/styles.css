@@ -34,3 +34,7 @@ body {
 .CodeMirror {
     border-radius: 0 0 .5rem .5rem;
 }
+
+.collapsed {
+    flex-grow: 0;
+}

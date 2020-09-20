@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import 'codemirror/lib/codemirror.css';
 
@@ -23,11 +23,17 @@ export default function Editor( props: EditorProps ) {
     
     const { displayNome, language, handleChange, value } = props;
 
+    const [collapsed, setCollapsed] = useState(false);
+
+    const editorClass = `editor-container ${collapsed ? 'collapsed' : ''}`;
+
     return (
-        <div className="editor-container">
+        <div className={editorClass}>
             <div className="editor-title">
                 { displayNome }
-                <button>O/C</button>
+                <button
+                    onClick={() => setCollapsed(prevState => !prevState)}
+                >O/C</button>
             </div>
                 <ControlledEditor
                     onBeforeChange={handleChange}
