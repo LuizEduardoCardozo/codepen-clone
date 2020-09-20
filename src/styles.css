@@ -38,3 +38,16 @@ body {
 .collapsed {
     flex-grow: 0;
 }
+
+.editor-container.collapsed .CodeMirror-scroll {
+    position: absolute;
+    overflow: hidden !important;
+}
+
+.btn-expand-collapse {
+    margin-left: .5rem;
+    background: none;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}

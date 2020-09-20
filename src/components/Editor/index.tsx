@@ -10,6 +10,9 @@ import 'codemirror/mode/css/css';
 
 import { Controlled as ControlledEditor } from 'react-codemirror2';
 
+import { BsArrowsAngleExpand } from 'react-icons/bs';
+import { CgCompressRight } from 'react-icons/cg';
+
 import './styles.css';
 
 interface EditorProps {
@@ -32,8 +35,17 @@ export default function Editor( props: EditorProps ) {
             <div className="editor-title">
                 { displayNome }
                 <button
+                    type="button"
+                    className="btn-expand-collapse" 
                     onClick={() => setCollapsed(prevState => !prevState)}
-                >O/C</button>
+                >
+                    
+                    {collapsed 
+                        ? <BsArrowsAngleExpand /> 
+                        : <CgCompressRight />
+                    }
+
+                </button>
             </div>
                 <ControlledEditor
                     onBeforeChange={handleChange}
