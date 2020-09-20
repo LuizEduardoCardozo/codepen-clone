@@ -10,12 +10,27 @@ function App() {
   const [ javaScript, setJavaScript ] = useState("");
   const [ css, setCss ] = useState("");
 
-  const mainSrc = `
-    <html>
-      <body>${html}</body>
-      <styles>${css}<styles/>
-    </html>
-  `;
+  const [ mainSrc, setMainSrc ] = useState("");
+
+  useEffect(() => {
+
+    const timeout = setTimeout(() => {
+      
+      const mainSrc = `
+      <html>
+        <body>${html}</body>
+        <style>${css}</style>
+        <script>${javaScript}</script>
+      </html>
+      `;
+
+      setMainSrc(mainSrc)
+    }, 250);
+
+    return () => clearTimeout(timeout);
+
+  }, [html, css, javaScript])
+
 
   return (
     <>
