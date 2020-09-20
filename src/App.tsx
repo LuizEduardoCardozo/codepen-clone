@@ -25,7 +25,7 @@ function App() {
       `;
 
       setMainSrc(mainSrc)
-    }, 250);
+    }, 370);
 
     return () => clearTimeout(timeout);
 
