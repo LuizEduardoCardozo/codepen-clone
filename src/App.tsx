@@ -1,16 +1,51 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import Editor from './components/Editor/index';
 
+import './styles.css';
+
 function App() {
+
+  const [ html, setHtml ] = useState("");
+  const [ javaScript, setJavaScript ] = useState("");
+  const [ css, setCss ] = useState("");
+
   return (
     <>
-    
       <div className="pane top-pane">
 
-        <Editor />
-        <Editor />
-        <Editor />
+        <Editor 
+          displayNome="HTML" 
+          language="xml" 
+          value={html} 
+          handleChange={
+            ( editor: any, data: any, value: any ) => {
+              setHtml(value);
+            }
+          }
+          />
+
+        <Editor 
+          displayNome="CSS" 
+          language="css" 
+          value={css} 
+          handleChange={
+            ( editor: any, data: any, value: any ) => {
+              setCss(value);
+            }
+          }
+          />
+
+          <Editor 
+            displayNome="JS" 
+            language="javascript" 
+            value={javaScript} 
+            handleChange={
+              ( editor: any, data: any, value: any ) => {
+                setJavaScript(value);
+              }
+            }
+            />
 
       </div>
 
@@ -26,7 +61,6 @@ function App() {
 
         </iframe>
       </div>
-    
     </>
   );
 }
