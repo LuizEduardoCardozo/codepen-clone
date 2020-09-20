@@ -2,13 +2,15 @@ import React, { useState, useEffect } from 'react';
 
 import Editor from './components/Editor/index';
 
+import useLocalStorage from './hooks/useLocalStorage';
+
 import './styles.css';
 
 function App() {
 
-  const [ html, setHtml ] = useState("");
-  const [ javaScript, setJavaScript ] = useState("");
-  const [ css, setCss ] = useState("");
+  const [ html, setHtml ] = useLocalStorage("html", "");
+  const [ javaScript, setJavaScript ] = useLocalStorage("javascript", "");
+  const [ css, setCss ] = useLocalStorage("css", "");
 
   const [ mainSrc, setMainSrc ] = useState("");
 
