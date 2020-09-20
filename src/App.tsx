@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import Editor from './components/Editor/index';
 
@@ -9,6 +9,13 @@ function App() {
   const [ html, setHtml ] = useState("");
   const [ javaScript, setJavaScript ] = useState("");
   const [ css, setCss ] = useState("");
+
+  const mainSrc = `
+    <html>
+      <body>${html}</body>
+      <styles>${css}<styles/>
+    </html>
+  `;
 
   return (
     <>
@@ -51,7 +58,7 @@ function App() {
 
       <div className="pane">
         <iframe 
-          src="" 
+          srcDoc={mainSrc}
           title="output" 
           sandbox="allow-scripts"
           frameBorder="0"
